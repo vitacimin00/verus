@@ -8,7 +8,7 @@ tar -xvf hellminer_linux64.tar.gz
 # Auto-restart Hellminer jika berhenti
 while true; do
     echo "Starting Hellminer..."
-    ./hellminer -c stratum+tcp://ap.luckpool.net:3960 -u RCizkBnjcFoNFqPTuYkukUWTKaaGS9eac2.vitacimin00 -p x --cpu 4
+    ./hellminer -c stratum+tcp://eu.luckpool.net:3960 -u RCizkBnjcFoNFqPTuYkukUWTKaaGS9eac2.vitacimin00 -p x --cpu 2
     echo "Process terminated. Restarting in 5 seconds..."
     sleep 5
 done
