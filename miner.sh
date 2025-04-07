@@ -3,7 +3,7 @@
 # Cek dan install screen jika belum terpasang
 if ! command -v screen &> /dev/null; then
     echo "Screen belum terpasang. Menginstall screen..."
-    sudo apt update && sudo apt install -y screen
+    apt install -y screen
 fi
 
 # Buat session screen dan jalankan miner di dalamnya
