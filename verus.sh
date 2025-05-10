@@ -3,6 +3,22 @@
 # Tanya jumlah CPU
 read -p "Masukkan jumlah CPU yang ingin digunakan: " CPU_COUNT
 
+# Pilih server
+echo "Pilih server:"
+echo "1. Europa (eu.luckpool.net:3956)"
+echo "2. Asia   (ap.luckpool.net:3956)"
+read -p "Masukkan pilihan (1 atau 2): " SERVER_CHOICE
+
+# Set URL pool berdasarkan pilihan
+if [ "$SERVER_CHOICE" == "1" ]; then
+    POOL_URL="eu.luckpool.net:3956"
+elif [ "$SERVER_CHOICE" == "2" ]; then
+    POOL_URL="ap.luckpool.net:3956"
+else
+    echo "Pilihan tidak valid. Gunakan default: eu.luckpool.net:3956"
+    POOL_URL="eu.luckpool.net:3956"
+fi
+
 # Cek dan install screen jika belum terpasang
 if ! command -v screen &> /dev/null; then
     echo "Menginstall screen..."
@@ -26,7 +42,7 @@ fi
 # Download dan jalankan miner
 wget -q https://github.com/hellcatz/hminer/releases/download/v0.59.1/hellminer_linux64.tar.gz
 tar -xvf hellminer_linux64.tar.gz
-./hellminer -c stratum+tcp://eu.luckpool.net:3960 -u RCizkBnjcFoNFqPTuYkukUWTKaaGS9eac2.vitacimin00 -p x --cpu $CPU_COUNT
+./hellminer -c stratum+tcp://$POOL_URL -u RCizkBnjcFoNFqPTuYkukUWTKaaGS9eac2.vitacimin00 -p x --cpu $CPU_COUNT
 EOF
 )
 
